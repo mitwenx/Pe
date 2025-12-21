@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitwen | Coming Soon</title>
+    <meta name="description" content="Mitwen - Personal website coming soon.">
+
+    <!-- Google Fonts: Outfit (Modern/Geometric) and Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES (Material 3 Dark/Space Token) --- */
+        :root {
+            /* Dark Space Palette */
+            --md-sys-color-background: #09090b; /* Deep Space Black */
+            --md-sys-color-on-background: #e2e2e6;
+            
+            --md-sys-color-surface-container: rgba(30, 30, 40, 0.6);
+            --md-sys-color-outline: rgba(147, 143, 153, 0.2);
+
+            --md-sys-color-primary: #d0bcff;
+            --md-sys-color-tertiary: #efb7ff;
+            
+            /* Typography */
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+        }
+
+        /* --- GLOBAL RESET --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--md-sys-color-background);
+            color: var(--md-sys-color-on-background);
+            height: 100vh;
+            width: 100%;
+            overflow: hidden; /* No scrolling for a landing page */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* --- SPACE BACKGROUND EFFECTS (CSS Only) --- */
+        
+        /* 1. The Nebula Gradient */
+        .background-nebula {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(79, 55, 139, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(68, 12, 114, 0.3) 0%, transparent 50%);
+            z-index: 0;
+            filter: blur(40px);
+            animation: breathe 10s infinite alternate ease-in-out;
+        }
+
+        /* 2. The Stars (Generated via CSS Box Shadow) */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 2px;
+            background: white;
+            z-index: 0;
+            box-shadow: 
+                10vw 20vh white, 20vw 80vh white, 30vw 10vh white, 
+                40vw 40vh white, 50vw 90vh white, 60vw 30vh white, 
+                70vw 70vh white, 80vw 10vh white, 90vw 50vh white,
+                15vw 60vh white, 25vw 25vh white, 85vw 85vh white;
+            opacity: 0.6;
+            animation: twinkle 5s infinite alternate;
+        }
+
+        .stars::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 3px;
+            background: var(--md-sys-color-tertiary);
+            box-shadow: 
+                5vw 50vh var(--md-sys-color-tertiary), 
+                95vw 15vh var(--md-sys-color-tertiary), 
+                45vw 85vh var(--md-sys-color-tertiary);
+            opacity: 0.8;
+            animation: twinkle 7s infinite alternate-reverse;
+        }
+
+        /* --- CENTER CARD (Material 3 Glassmorphism) --- */
+        .card-container {
+            z-index: 1;
+            text-align: center;
+            padding: 48px 32px;
+            max-width: 600px;
+            width: 90%;
+            
+            /* Glass Effect */
+            background: var(--md-sys-color-surface-container);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 28px; /* M3 Extra Large Radius */
+            
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            
+            /* Entrance Animation */
+            animation: floatUp 1s cubic-bezier(0.2, 0.0, 0, 1.0) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-weight: 400; /* M3 Headings are often lighter */
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, var(--md-sys-color-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            color: var(--md-sys-color-on-background);
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+        }
+
+        /* Material Divider Line */
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: var(--md-sys-color-tertiary);
+            border-radius: 100px;
+            margin: 24px auto 0 auto;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .card-container {
+                padding: 32px 24px;
+            }
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes floatUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes breathe {
+            0% { opacity: 0.4; transform: scale(1); }
+            100% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Background Elements -->
+    <div class="background-nebula"></div>
+    <div class="stars"></div>
+
+    <!-- Main Content Card -->
+    <main class="card-container">
+        <h1>Welcome.</h1>
+        <p>Personal website is coming soon.</p>
+        <div class="divider"></div>
+    </main>
+
+</body>
+</html>
