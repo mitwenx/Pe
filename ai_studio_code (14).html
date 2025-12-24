@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        :root {
+            --bg-color: #000000;
+            --text-main: #ffffff;
+            --text-dim: #bbbbbb;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Roboto', sans-serif;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; /* No scroll */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content-wrapper {
+            max-width: 500px;
+            width: 100%;
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-weight: 900;
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+            border-bottom: 4px solid white;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .bio {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            border-left: 2px solid #333;
+            padding-left: 15px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .links-grid {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .btn-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            background: black;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-decoration: none;
+        }
+
+        .btn-link svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        /* --- Custom Adjustment for Strava --- */
+        .btn-link.strava-link svg {
+            width: 34px; /* Slightly bigger as requested */
+            height: 34px;
+        }
+
+        .btn-link:hover {
+            background: white;
+            color: black;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- BLOG LINK --- */
+        .blog-link {
+            font-family: 'Roboto Mono', monospace;
+            color: white;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        .blog-link:hover {
+            color: #bbbbbb;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 450px) {
+            h1 { font-size: 3rem; }
+            .bio { font-size: 0.85rem; text-align: center; border-left: none; padding-left: 0; }
+            .btn-link { width: 60px; height: 60px; }
+            .btn-link.strava-link svg { width: 28px; height: 28px; } /* Reset on tiny screens */
+        }
+    </style>
+</head>
+<body>
+
+    <main class="content-wrapper">
+        
+        <h1>Welcome.</h1>
+
+        <div class="bio">
+            <p>
+                <strong>Athlete & Strategist.</strong><br>
+                Dedicated to the grind—whether dropping watts on the bike, pounding the pavement running, or taking long walks to reset. <br><br>
+                When the physical work is done, you'll find me optimizing bases and warring in Clash of Clans.
+            </p>
+        </div>
+
+        <!-- SOCIAL LINKS -->
+        <div class="links-grid">
+            
+            <!-- Strava (Class added for sizing) -->
+            <a href="https://www.strava.com/athletes/YOUR_ID" class="btn-link strava-link" aria-label="Strava">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="currentColor" fill-rule="evenodd">
+                        <path d="M6.9 8.8L9.4 13.3L11.8 8.8H10.3L9.4 10.5L8.4 8.8Z" opacity="0.8"/>
+                        <path d="M7.2 2.5L10.3 8.8H4L7.2 2.5ZM7.2 6.3L8.4 8.8H5.9L7.2 6.3Z"/>
+                    </g>
+                </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/YOUR_USERNAME" class="btn-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:your-email@example.com" class="btn-link" aria-label="Email">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+            </a>
+            
+        </div>
+
+        <!-- BLOG TEXT LINK -->
+        <a href="blog.html" class="blog-link">READ MY BLOG</a>
+
+    </main>
+</body>
+</html>

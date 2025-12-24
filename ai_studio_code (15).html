@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog List</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            padding: 30px 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .back-link {
+            color: #888;
+            text-decoration: none;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+        }
+        .back-link:hover { color: #fff; }
+
+        /* SEARCH BAR */
+        .search-box {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1rem;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            background: #111;
+        }
+
+        /* BLOG LIST */
+        .blog-list {
+            list-style: none;
+        }
+
+        .blog-item {
+            display: block;
+            padding: 25px 0;
+            border-bottom: 1px solid #222;
+            text-decoration: none;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .blog-item:hover {
+            transform: translateX(10px);
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .post-meta {
+            font-family: 'Roboto Mono', monospace;
+            color: #888;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+
+        .post-excerpt {
+            color: #bbbbbb;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header">
+            <h2>Writings</h2>
+            <a href="index.html" class="back-link">← HOME</a>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search posts..." onkeyup="filterPosts()">
+        </div>
+
+        <!-- LIST -->
+        <div class="blog-list" id="blogList">
+            
+            <!-- Item 1 -->
+            <a href="post.html" class="blog-item">
+                <div class="post-title">Cycling the Alpe d'Huez</div>
+                <div class="post-meta">Oct 24, 2023 • Cycling</div>
+                <div class="post-excerpt">The climb was brutal, but the descent was worth every pedal stroke. Read about my stats...</div>
+            </a>
+
+            <!-- Item 2 -->
+            <a href="post.html" class="blog-item">
+                <div class="post-title">Clash of Clans War Strategy</div>
+                <div class="post-meta">Oct 20, 2023 • Gaming</div>
+                <div class="post-excerpt">How to optimize your TH13 base layout for the upcoming clan war leagues.</div>
+            </a>
+
+            <!-- Item 3 -->
+            <a href="post.html" class="blog-item">
+                <div class="post-title">My Morning Routine</div>
+                <div class="post-meta">Oct 15, 2023 • Lifestyle</div>
+                <div class="post-excerpt">Running 5k before the sun comes up changes your mindset for the whole day.</div>
+            </a>
+
+        </div>
+    </div>
+
+    <script>
+        function filterPosts() {
+            let input = document.getElementById('searchInput');
+            let filter = input.value.toUpperCase();
+            let container = document.getElementById("blogList");
+            let items = container.getElementsByClassName('blog-item');
+
+            for (let i = 0; i < items.length; i++) {
+                let title = items[i].getElementsByClassName("post-title")[0];
+                let txtValue = title.textContent || title.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
