@@ -1,0 +1,145 @@
+/* --- GLOBAL STYLES --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #000;
+    color: #ddd;
+    font-family: 'Roboto', sans-serif;
+    padding: 30px 20px;
+    line-height: 1.6;
+}
+
+a { text-decoration: none; transition: 0.2s; }
+
+.container {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Typography Utility */
+.font-mono { font-family: 'Roboto Mono', monospace; }
+
+/* --- HEADER (Used in blog.html) --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 15px;
+}
+
+.header h2 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.nav-link {
+    color: #888;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.nav-link:hover { color: #fff; }
+
+/* --- SEARCH BAR --- */
+.search-box { width: 100%; margin-bottom: 30px; }
+
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 1px solid #555;
+    color: #fff;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+input[type="text"]:focus { border-color: #fff; background: #111; }
+
+/* --- BLOG LIST ITEMS --- */
+.blog-list { list-style: none; }
+
+.blog-item {
+    display: block;
+    padding: 25px 0;
+    border-bottom: 1px solid #222;
+    color: white;
+}
+
+.blog-item:hover { transform: translateX(10px); }
+
+.blog-item .post-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.blog-item .post-meta {
+    font-family: 'Roboto Mono', monospace;
+    color: #888;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+
+.blog-item .post-excerpt {
+    color: #bbbbbb;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- POST VIEW (Redesign) --- */
+.post-header { margin-bottom: 40px; }
+
+.post-header h1 {
+    color: #fff;
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.post-full-meta {
+    font-family: 'Roboto Mono', monospace;
+    color: #666;
+    font-size: 0.85rem;
+    border-left: 3px solid #fff;
+    padding-left: 15px;
+    display: block;
+}
+
+.post-content p {
+    margin-bottom: 25px;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+.post-content strong { color: #fff; }
+
+.post-content blockquote {
+    border-left: 4px solid #fff;
+    background: #111;
+    margin: 35px 0;
+    padding: 20px;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.post-footer {
+    margin-top: 80px;
+    padding-top: 30px;
+    border-top: 1px solid #222;
+    text-align: center;
+    color: #444;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
