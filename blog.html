@@ -7,103 +7,9 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
-
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: 'Roboto', sans-serif;
-            padding: 30px 20px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* HEADER */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            border-bottom: 2px solid #333;
-            padding-bottom: 15px;
-        }
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .back-link {
-            color: #888;
-            text-decoration: none;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.9rem;
-        }
-        .back-link:hover { color: #fff; }
-
-        /* SEARCH BAR */
-        .search-box {
-            width: 100%;
-            margin-bottom: 30px;
-        }
-        
-        input[type="text"] {
-            width: 100%;
-            padding: 15px;
-            background: transparent;
-            border: 1px solid #fff;
-            color: #fff;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 1rem;
-            outline: none;
-        }
-        input[type="text"]:focus {
-            background: #111;
-        }
-
-        /* BLOG LIST */
-        .blog-list {
-            list-style: none;
-        }
-
-        .blog-item {
-            display: block;
-            padding: 25px 0;
-            border-bottom: 1px solid #222;
-            text-decoration: none;
-            color: white;
-            transition: 0.2s;
-        }
-
-        .blog-item:hover {
-            transform: translateX(10px);
-        }
-
-        .post-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .post-meta {
-            font-family: 'Roboto Mono', monospace;
-            color: #888;
-            font-size: 0.8rem;
-            margin-bottom: 8px;
-        }
-
-        .post-excerpt {
-            color: #bbbbbb;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-    </style>
+    
+    <!-- Linked CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -111,7 +17,8 @@
         
         <div class="header">
             <h2>Writings</h2>
-            <a href="index.html" class="back-link">← HOME</a>
+            <!-- Arrow removed as requested -->
+            <a href="index.html" class="nav-link">HOME</a>
         </div>
 
         <!-- SEARCH -->
